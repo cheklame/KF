@@ -137,7 +137,8 @@ int i,j;
 int main(){
 int i,j;
 
-
+   printf("------------------program start-------------------------\n");
+	
 float Mat1[Nb_element][Nb_element] = {{2,1,-4} , {3, 3, -5} , {4, 5, -2}};
 float Mat2[Nb_element][Nb_element] = {{2,1,-4} , {3, 3, -5} , {4, 5, -2}};
 float Res[Nb_element][Nb_element];
@@ -228,7 +229,7 @@ Sous_Mat(Mat1,Mat2,Res);
 
 	}
 
-	printf("\n");
+	printf("\n ---------------program end-------------");
 }
 	return 0;
 }
