@@ -19,8 +19,8 @@ for(k = 0; k<Nb_element; k++){
 	if(Mat[k][k] == 0){
 		printf("error \n");
 	}
-else{
-	p = Mat[k][k];
+    else{
+	  p = Mat[k][k];
 
 	//normalisation
 
@@ -116,6 +116,23 @@ int i,j;
 
 
 
+void Display(float M[Nb_element][Nb_element]){
+
+for(i = 0; i<Nb_element; i++){
+	for(j = 0; j<Nb_element; j++){
+
+      printf("  %f  ",M[i][j]);
+
+	}
+
+	printf("\n");
+}
+printf("\n\n");
+
+
+}
+
+
 void Sous_Mat(float M1[Nb_element][Nb_element],float M2[Nb_element][Nb_element],float Res[Nb_element][Nb_element]){
 
 int i,j;
@@ -137,8 +154,7 @@ int i,j;
 int main(){
 int i,j;
 
-   printf("------------------program start-------------------------\n");
-	
+
 float Mat1[Nb_element][Nb_element] = {{2,1,-4} , {3, 3, -5} , {4, 5, -2}};
 float Mat2[Nb_element][Nb_element] = {{2,1,-4} , {3, 3, -5} , {4, 5, -2}};
 float Res[Nb_element][Nb_element];
@@ -147,89 +163,30 @@ float Res[Nb_element][Nb_element];
 float Id_Mat[Nb_element][Nb_element] = {{1,0,0},{0,1,0},{0,0,1}};
 
 
-     Inv_Mat(Mat2, Id_Mat);
-
-for(i = 0; i<Nb_element; i++){
-	for(j = 0; j<Nb_element; j++)
-      {
-		printf("%f ",Id_Mat[i][j]);
-
-      }
-
-      printf("\n");
-}
-
-
-printf("\n");
+Inv_Mat(Mat2, Id_Mat);
+Display(Inv_Mat);
 
 //----------------------------------------------------------------------
 
 Mult_Mat(Mat1,Mat2,Res);
-
-
-
-for(i = 0; i<Nb_element; i++){
-
-	for(j = 0; j<Nb_element; j++){
-
-      printf("  %f  ",Res[i][j]);
-
-	}
-
-	printf("\n");
-}
-printf("\n\n");
+Display(Res);
 
 
 //-----------------------------------------------
 
 Tran_Mat(Mat1);
-
-   for(i = 0; i<Nb_element; i++){
-
-	for(j = 0; j<Nb_element; j++){
-
-      printf("  %f  ",Mat1[i][j]);
-
-	}
-
-	printf("\n");
-}
-
-printf("\n\n");
+Display(Mat1);
 
 //------------------------------------------
 
 Add_Mat(Mat1,Mat2,Res);
-
-
-   for(i = 0; i<Nb_element;i++){
-
-	for(j = 0; j<Nb_element; j++){
-
-      printf("  %f  ",Res[i][j]);
-
-	}
-
-	printf("\n");
-}
-
-   printf("\n\n");
+Display(Res);
 
 //-------------------------------------------
 
 Sous_Mat(Mat1,Mat2,Res);
+Display(Res);
 
 
-   for(i = 0; i<Nb_element;i++){
-
-	for(j = 0; j<Nb_element; j++){
-
-      printf("  %f  ",Res[i][j]);
-
-	}
-
-	printf("\n ---------------program end-------------");
-}
 	return 0;
 }
